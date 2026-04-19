@@ -1,0 +1,5 @@
+crewai
+langchain
+langchain-community
+ollama
+pytest
