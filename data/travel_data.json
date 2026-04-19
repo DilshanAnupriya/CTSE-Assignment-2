@@ -1,0 +1,31 @@
+{
+  "Kandy": {
+    "places": [
+      "Temple of Tooth",
+      "Kandy Lake",
+      "Peradeniya Botanical Garden"
+    ],
+    "hotels": [
+      {"name": "Hotel A", "price": 50},
+      {"name": "Hotel B", "price": 80}
+    ]
+  },
+  "Ella": {
+    "places": [
+      "Nine Arch Bridge",
+      "Little Adam's Peak"
+    ],
+    "hotels": [
+      {"name": "Ella Resort", "price": 70}
+    ]
+  },
+  "Galle": {
+    "places": [
+      "Galle Fort",
+      "Unawatuna Beach"
+    ],
+    "hotels": [
+      {"name": "Sea View Hotel", "price": 90}
+    ]
+  }
+}
