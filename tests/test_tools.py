@@ -1,25 +1,32 @@
+"""
+Basic tool smoke tests — backwards-compatibility parity checks.
+These run alongside the full test suite in test_research_agent.py.
+"""
 import sys
 import os
 
-sys.path.append(os.path.abspath("src"))
+sys.path.insert(0, os.path.abspath("src"))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
-from tools.cost_tool import cost_tool
-from tools.travel_tool import travel_tool
-from tools.hotel_tool import hotel_tool
-
-
-def test_cost_tool():
-    assert cost_tool(50, 2) == 100
-    assert cost_tool(0, 5) == 0
+from tools.travel_tool import get_places_and_activities
 
 
-def test_travel_tool():
-    places = travel_tool("Kandy")
-    assert isinstance(places, list)
-    assert len(places) > 0
+def test_travel_tool_returns_dict():
+    """travel_tool should return a dict with 'places' and 'activities' keys."""
+    result = get_places_and_activities("Kandy")
+    assert isinstance(result, dict)
+    assert "places" in result
+    assert "activities" in result
 
 
-def test_hotel_tool():
-    hotels = hotel_tool("Ella")
-    assert isinstance(hotels, list)
-    assert "name" in hotels[0]
+def test_travel_tool_places_is_list():
+    """The 'places' value must be a list."""
+    result = get_places_and_activities("Kandy")
+    assert isinstance(result["places"], list)
+    assert len(result["places"]) > 0
+
+
+def test_travel_tool_unknown_destination():
+    """Unknown destinations must return a non-None error."""
+    result = get_places_and_activities("UnknownCity")
+    assert result["error"] is not None

@@ -1,31 +1,244 @@
 {
   "Kandy": {
     "places": [
-      "Temple of Tooth",
-      "Kandy Lake",
-      "Peradeniya Botanical Garden"
+      {
+        "name": "Temple of the Tooth Relic (Sri Dalada Maligawa)",
+        "type": "Cultural/Religious",
+        "description": "Sri Lanka's most sacred Buddhist temple, housing the relic of the tooth of Buddha. A UNESCO World Heritage Site.",
+        "rating": 4.8,
+        "entry_fee_usd": 15,
+        "best_time": "Morning or evening puja ceremony (6am, 9:30am, 6:30pm)",
+        "duration_hours": 2
+      },
+      {
+        "name": "Kandy Lake (Kiri Muhuda)",
+        "type": "Nature/Scenic",
+        "description": "Artificial lake built by the last king of Kandy. Perfect for morning walks and photography.",
+        "rating": 4.5,
+        "entry_fee_usd": 0,
+        "best_time": "Early morning or sunset",
+        "duration_hours": 1
+      },
+      {
+        "name": "Royal Botanical Gardens, Peradeniya",
+        "type": "Nature",
+        "description": "One of the finest botanical gardens in Asia, covering 147 acres with over 4,000 plant species including orchids, giant Javan fig trees, and spice gardens.",
+        "rating": 4.7,
+        "entry_fee_usd": 15,
+        "best_time": "Morning",
+        "duration_hours": 3
+      },
+      {
+        "name": "Kandy Cultural Centre & Dance Show",
+        "type": "Entertainment/Culture",
+        "description": "Traditional Kandyan dance performance featuring fire-walking and cultural heritage shows.",
+        "rating": 4.3,
+        "entry_fee_usd": 10,
+        "best_time": "Evening (show starts at 5:30pm)",
+        "duration_hours": 1.5
+      },
+      {
+        "name": "Udawatta Kele Sanctuary",
+        "type": "Nature/Wildlife",
+        "description": "A protected rainforest reserve in the heart of Kandy. Home to monkeys, birds, and tropical flora.",
+        "rating": 4.2,
+        "entry_fee_usd": 5,
+        "best_time": "Morning",
+        "duration_hours": 2
+      }
+    ],
+    "activities": [
+      "Cycling around Kandy Lake",
+      "Cooking class with local family",
+      "Tea tasting at a local tea house",
+      "Shopping at Kandy City Centre Mall",
+      "Visit local gem museum",
+      "Sunset walk along Bahirawakanda Temple hill"
     ],
     "hotels": [
-      {"name": "Hotel A", "price": 50},
-      {"name": "Hotel B", "price": 80}
+      {"name": "Hotel Suisse Kandy", "price_per_night_usd": 85, "rating": 4.2, "type": "Heritage"},
+      {"name": "Earl's Regency Hotel", "price_per_night_usd": 120, "rating": 4.5, "type": "Luxury"},
+      {"name": "Theva Residency", "price_per_night_usd": 65, "rating": 4.1, "type": "Boutique"},
+      {"name": "Camellia Hills Kandy", "price_per_night_usd": 50, "rating": 3.9, "type": "Budget"}
     ]
   },
   "Ella": {
     "places": [
-      "Nine Arch Bridge",
-      "Little Adam's Peak"
+      {
+        "name": "Nine Arch Bridge (Demodara Bridge)",
+        "type": "Scenic/Architecture",
+        "description": "A stunning colonial-era viaduct bridge built entirely of stone and brick with no steel. Best viewed when the train passes through lush green jungle.",
+        "rating": 4.9,
+        "entry_fee_usd": 0,
+        "best_time": "7-8am or 3-4pm when trains pass",
+        "duration_hours": 1.5
+      },
+      {
+        "name": "Little Adam's Peak",
+        "type": "Hiking/Nature",
+        "description": "An easy hike offering panoramic views of Ella Rock, the valley, and tea plantations. Ideal for sunrise.",
+        "rating": 4.7,
+        "entry_fee_usd": 0,
+        "best_time": "Sunrise (5:30-7am)",
+        "duration_hours": 2.5
+      },
+      {
+        "name": "Ella Rock",
+        "type": "Hiking/Adventure",
+        "description": "A challenging hike through tea estates and jungle leading to a stunning 360° view of the Ella valley.",
+        "rating": 4.8,
+        "entry_fee_usd": 0,
+        "best_time": "Early morning (6am start)",
+        "duration_hours": 5
+      },
+      {
+        "name": "Ravana Falls",
+        "type": "Nature/Waterfall",
+        "description": "A 25-metre cascade waterfall associated with the legend of King Ravana. A popular spot for swimming.",
+        "rating": 4.4,
+        "entry_fee_usd": 2,
+        "best_time": "Morning",
+        "duration_hours": 1
+      },
+      {
+        "name": "Diyaluma Falls",
+        "type": "Nature/Waterfall",
+        "description": "Sri Lanka's second tallest waterfall at 220 meters with natural rock pools at the top for swimming.",
+        "rating": 4.6,
+        "entry_fee_usd": 0,
+        "best_time": "Dry season mornings",
+        "duration_hours": 3
+      }
+    ],
+    "activities": [
+      "Train ride from Ella to Kandy (scenic route)",
+      "Tea plantation tour and factory visit",
+      "White water rafting on Kelani River",
+      "Zip-lining over the jungle canopy",
+      "Yoga and meditation retreat",
+      "Night sky watching (minimal light pollution)"
     ],
     "hotels": [
-      {"name": "Ella Resort", "price": 70}
+      {"name": "98 Acres Resort & Spa", "price_per_night_usd": 180, "rating": 4.8, "type": "Luxury"},
+      {"name": "Ella Flower Garden Resort", "price_per_night_usd": 90, "rating": 4.4, "type": "Boutique"},
+      {"name": "Zion View Ella", "price_per_night_usd": 55, "rating": 4.2, "type": "Guesthouse"},
+      {"name": "Budget Ella Hostel", "price_per_night_usd": 18, "rating": 3.7, "type": "Hostel"}
     ]
   },
   "Galle": {
     "places": [
-      "Galle Fort",
-      "Unawatuna Beach"
+      {
+        "name": "Galle Fort",
+        "type": "Historical/UNESCO",
+        "description": "A 17th-century Dutch fort, a UNESCO World Heritage Site. Contains bastions, ramparts, colonial buildings, boutique hotels, cafes, and art galleries.",
+        "rating": 4.9,
+        "entry_fee_usd": 0,
+        "best_time": "Late afternoon for sunset walk on ramparts",
+        "duration_hours": 3
+      },
+      {
+        "name": "Unawatuna Beach",
+        "type": "Beach/Relaxation",
+        "description": "A crescent-shaped bay with calm waters ideal for swimming and snorkeling, with coral reef and sea turtles.",
+        "rating": 4.6,
+        "entry_fee_usd": 0,
+        "best_time": "Morning (avoid peak noon heat)",
+        "duration_hours": 4
+      },
+      {
+        "name": "Jungle Beach (Rumassala)",
+        "type": "Beach/Nature",
+        "description": "A secluded beach accessible through a jungle trail. Crystal clear water and excellent snorkeling.",
+        "rating": 4.7,
+        "entry_fee_usd": 0,
+        "best_time": "Morning",
+        "duration_hours": 3
+      },
+      {
+        "name": "Galle Lighthouse",
+        "type": "Landmark/Scenic",
+        "description": "Sri Lanka's oldest working lighthouse, built in 1938. Located inside the Galle Fort walls with sea views.",
+        "rating": 4.3,
+        "entry_fee_usd": 2,
+        "best_time": "Afternoon",
+        "duration_hours": 0.5
+      },
+      {
+        "name": "Sea Turtle Hatchery (Kosgoda)",
+        "type": "Wildlife/Conservation",
+        "description": "A conservation project protecting endangered sea turtles. Visitors can watch hatchlings and learn about conservation.",
+        "rating": 4.5,
+        "entry_fee_usd": 5,
+        "best_time": "Morning",
+        "duration_hours": 1.5
+      }
+    ],
+    "activities": [
+      "Surfing lessons at Weligama Beach",
+      "Whale watching boat tour (November to April)",
+      "Snorkeling and diving in coral reef",
+      "Sunset glass-bottom boat ride",
+      "Shopping handcraft souvenirs inside the Fort",
+      "Cooking class — traditional Sri Lankan seafood curry"
     ],
     "hotels": [
-      {"name": "Sea View Hotel", "price": 90}
+      {"name": "Amangalla (Heritage Hotel)", "price_per_night_usd": 450, "rating": 4.9, "type": "Ultra-Luxury"},
+      {"name": "Fort Bazaar Galle", "price_per_night_usd": 220, "rating": 4.7, "type": "Luxury Boutique"},
+      {"name": "The Fortress Resort & Spa", "price_per_night_usd": 175, "rating": 4.6, "type": "Luxury"},
+      {"name": "Galle Fort Hotel", "price_per_night_usd": 110, "rating": 4.4, "type": "Boutique"}
+    ]
+  },
+  "Colombo": {
+    "places": [
+      {
+        "name": "Gangaramaya Temple",
+        "type": "Cultural/Religious",
+        "description": "A culturally rich Buddhist temple containing a mix of Sri Lankan, Thai, Indian, and Chinese architectural styles.",
+        "rating": 4.6,
+        "entry_fee_usd": 3,
+        "best_time": "Morning",
+        "duration_hours": 1.5
+      },
+      {
+        "name": "Pettah Market",
+        "type": "Shopping/Culture",
+        "description": "Colombo's oldest and busiest bazaar, famous for spices, electronics, and local street food.",
+        "rating": 4.3,
+        "entry_fee_usd": 0,
+        "best_time": "Weekday morning",
+        "duration_hours": 2
+      },
+      {
+        "name": "Galle Face Green",
+        "type": "Scenic/Leisure",
+        "description": "A large urban park along the seafront. Famous for street food, kite flying, and Colombo sunset views.",
+        "rating": 4.5,
+        "entry_fee_usd": 0,
+        "best_time": "Evening",
+        "duration_hours": 2
+      },
+      {
+        "name": "Colombo National Museum",
+        "type": "Cultural/Historical",
+        "description": "The premier museum of Sri Lanka, housing royal regalia, ancient artifacts, and natural history exhibitions.",
+        "rating": 4.2,
+        "entry_fee_usd": 5,
+        "best_time": "Afternoon",
+        "duration_hours": 2
+      }
+    ],
+    "activities": [
+      "Street food tour in Pettah",
+      "Viharamahadevi Park morning walk",
+      "Colombo city sightseeing by tuk-tuk",
+      "Shopping at One Galle Face Mall",
+      "Heritage building photography walk"
+    ],
+    "hotels": [
+      {"name": "Shangri-La Hotel Colombo", "price_per_night_usd": 280, "rating": 4.8, "type": "Luxury"},
+      {"name": "Cinnamon Grand Colombo", "price_per_night_usd": 195, "rating": 4.6, "type": "Luxury"},
+      {"name": "OZO Colombo", "price_per_night_usd": 85, "rating": 4.1, "type": "Business"},
+      {"name": "Colombo City Hostel", "price_per_night_usd": 20, "rating": 3.8, "type": "Hostel"}
     ]
   }
 }
