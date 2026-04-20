@@ -8,7 +8,7 @@ The research task instructs the agent to:
   - Produce a structured, detailed report as its output.
   - Pass the context forward to the Planner Agent.
 
-Author: Dilshan Anupriya (Research Agent Module)
+Author: Nadeema Jayasinghe (Research Agent Module)
 """
 
 import logging

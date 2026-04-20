@@ -10,7 +10,7 @@ from services.planner_service import run_travel_planner
 def main():
     print("=== Travel Planner MAS ===")
 
-    destination = input("Enter destination (Kandy/Ella/Galle): ")
+    destination = input("Enter destination (Kandy/Ella/Galle/Colombo): ")
     days = int(input("Enter number of days: "))
 
     result = run_travel_planner(destination, days)

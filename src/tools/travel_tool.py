@@ -4,7 +4,7 @@ Travel Research Tool
 Custom tool for the Travel Research Agent in the Sri Lanka Travel Planner MAS.
 Provides structured lookup of tourist places and activities for supported destinations.
 
-Author: Dilshan Anupriya (Research Agent Module)
+Author: Nadeema Jayasinghe (Research Agent Module)
 """
 
 import json
