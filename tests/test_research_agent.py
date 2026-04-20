@@ -12,13 +12,16 @@ Coverage:
   5. Security Tests      — validate against prompt injection and bad inputs
 
 Run:
-    # From the project root directory:
-    pytest tests/test_research_agent.py -v
+    # From the project root directory (PowerShell):
+    python -m pytest tests/test_research_agent.py -v
 
-    # With coverage report:
-    pytest tests/test_research_agent.py -v --tb=short
+    # Skip LLM-as-a-Judge tests (when Ollama is not running):
+    python -m pytest tests/test_research_agent.py -v -k "not LLM"
 
-Author: Dilshan Anupriya (Research Agent Module)
+    # Run only LLM-as-a-Judge tests (requires Ollama + qwen2.5):
+    python -m pytest tests/test_research_agent.py::TestLLMAsJudge -v
+
+Author: Nadeema Jayasinghe (Research Agent Module)
 """
 
 import sys
@@ -322,6 +325,30 @@ class TestSecurityAndEdgeCases:
 # SECTION 7 — LLM-as-a-Judge Evaluation (optional, requires Ollama running)
 # ══════════════════════════════════════════════════════════════════════════════
 
+class OllamaUnavailableError(Exception):
+    """Raised when the local Ollama service cannot be reached."""
+
+
+def _check_ollama_available() -> None:
+    """
+    Probe the Ollama /api/tags endpoint with a very short timeout.
+
+    Raises:
+        OllamaUnavailableError: If Ollama is not running or unreachable.
+    """
+    try:
+        import requests  # type: ignore
+        response = requests.get("http://localhost:11434/api/tags", timeout=3)
+        if response.status_code != 200:
+            raise OllamaUnavailableError(
+                f"Ollama responded with HTTP {response.status_code}"
+            )
+    except OllamaUnavailableError:
+        raise
+    except Exception as e:
+        raise OllamaUnavailableError(f"Ollama not reachable: {e}") from e
+
+
 def evaluate_output_with_llm(output_text: str, destination: str) -> dict:
     """
     Use the local Ollama LLM to judge the quality of the research output.
@@ -335,46 +362,53 @@ def evaluate_output_with_llm(output_text: str, destination: str) -> dict:
 
     Returns:
         dict: Containing 'score' (int 1-10) and 'reason' (str).
+
+    Raises:
+        OllamaUnavailableError: If Ollama is not running (callers should skip).
     """
+    import requests  # type: ignore
+
+    # Raises OllamaUnavailableError immediately if not reachable
+    _check_ollama_available()
+
+    payload = {
+        "model": "qwen2.5",
+        "prompt": (
+            f'You are a travel quality evaluator. Rate this travel research report\n'
+            f'for "{destination}" on a scale of 1 to 10.\n\n'
+            f'Criteria:\n'
+            f'- Relevance: Does it mention real, known attractions in {destination}?\n'
+            f'- Completeness: Does it cover places, ratings, and activities?\n'
+            f'- Clarity: Is it well-structured and readable?\n\n'
+            f'Report to evaluate:\n---\n{output_text[:2000]}\n---\n\n'
+            f'Respond ONLY in JSON format like this:\n'
+            f'{{"score": <number 1-10>, "reason": "<one sentence>"}}'
+        ),
+        "stream": False,
+    }
+
     try:
-        import requests  # type: ignore
-        payload = {
-            "model": "qwen2.5",
-            "prompt": f"""You are a travel quality evaluator. Rate this travel research report
-for "{destination}" on a scale of 1 to 10.
-
-Criteria:
-- Relevance: Does it mention real, known attractions in {destination}?
-- Completeness: Does it cover places, ratings, and activities?
-- Clarity: Is it well-structured and readable?
-
-Report to evaluate:
----
-{output_text[:2000]}
----
-
-Respond ONLY in JSON format like this:
-{{"score": <number 1-10>, "reason": "<one sentence>"}}
-""",
-            "stream": False,
-        }
         response = requests.post(
             "http://localhost:11434/api/generate",
             json=payload,
-            timeout=60,
+            timeout=90,
         )
-        if response.status_code != 200:
-            return {"score": 0, "reason": f"HTTP error: {response.status_code}"}
+    except requests.exceptions.Timeout as e:
+        raise OllamaUnavailableError("Ollama request timed out (model too slow)") from e
+    except requests.exceptions.ConnectionError as e:
+        raise OllamaUnavailableError(f"Ollama connection error: {e}") from e
 
-        raw = response.json().get("response", "{}")
-        # Extract JSON from the response
-        match = re.search(r'\{[^}]+\}', raw)
-        if match:
+    if response.status_code != 200:
+        return {"score": 0, "reason": f"HTTP error: {response.status_code}"}
+
+    raw = response.json().get("response", "{}")
+    match = re.search(r'\{[^}]+\}', raw)
+    if match:
+        try:
             return json.loads(match.group())
-        return {"score": 0, "reason": f"Could not parse LLM response: {raw[:100]}"}
-
-    except Exception as e:
-        return {"score": 0, "reason": f"LLM judge unavailable: {str(e)}"}
+        except json.JSONDecodeError:
+            pass
+    return {"score": 0, "reason": f"Could not parse LLM response: {raw[:100]}"}
 
 
 @pytest.mark.skipif(
@@ -384,20 +418,32 @@ Respond ONLY in JSON format like this:
 class TestLLMAsJudge:
     """
     LLM-as-a-Judge tests using the local Ollama model.
-    These tests require Ollama to be running with qwen2.5 pulled.
-    Skip with: SKIP_LLM_TESTS=true pytest ...
+
+    These tests are AUTOMATICALLY SKIPPED if Ollama is not running or
+    not reachable — they will NEVER fail due to a missing Ollama service.
+
+    To run them: start Ollama, pull qwen2.5, then:
+        python -m pytest tests/test_research_agent.py::TestLLMAsJudge -v
+
+    To force-skip them:
+        $env:SKIP_LLM_TESTS='true'; python -m pytest tests/test_research_agent.py -v
     """
 
     def test_travel_tool_output_is_high_quality(self):
         """
         The formatted summary for 'Kandy' must score >= 6/10 from the LLM judge.
         This validates that our tool produces genuinely useful content.
+        Automatically skipped when Ollama is unavailable.
         """
         destination = "Kandy"
         summary = format_places_summary(destination)
         assert not summary.startswith("Error:"), "Tool returned an error instead of a summary"
 
-        judgment = evaluate_output_with_llm(summary, destination)
+        try:
+            judgment = evaluate_output_with_llm(summary, destination)
+        except OllamaUnavailableError as e:
+            pytest.skip(f"Ollama not available — skipping LLM judge test: {e}")
+
         score = judgment.get("score", 0)
         reason = judgment.get("reason", "No reason given")
 
@@ -411,12 +457,20 @@ class TestLLMAsJudge:
     def test_ella_summary_mentions_nine_arch_bridge(self):
         """
         The Ella summary must mention 'Nine Arch Bridge' — validating tool accuracy.
+        The LLM judge portion is automatically skipped when Ollama is unavailable.
         """
+        # This assertion is always checked (no LLM needed)
         summary = format_places_summary("Ella")
         assert "Nine Arch Bridge" in summary, (
             "Expected 'Nine Arch Bridge' in Ella summary but it was missing."
         )
-        judgment = evaluate_output_with_llm(summary, "Ella")
+
+        # LLM scoring — skip gracefully if Ollama is offline
+        try:
+            judgment = evaluate_output_with_llm(summary, "Ella")
+        except OllamaUnavailableError as e:
+            pytest.skip(f"Ollama not available — skipping LLM scoring: {e}")
+
         score = judgment.get("score", 0)
         print(f"\n[LLM Judge] Ella score: {score}/10 | {judgment.get('reason', '')}")
         assert score >= 5, f"Ella report quality too low: {score}/10"
