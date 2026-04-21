@@ -338,7 +338,7 @@ def _check_ollama_available() -> None:
     """
     try:
         import requests  # type: ignore
-        response = requests.get("http://localhost:11434/api/tags", timeout=3)
+        response = requests.get("http://localhost:11434/api/tags", timeout=5)
         if response.status_code != 200:
             raise OllamaUnavailableError(
                 f"Ollama responded with HTTP {response.status_code}"
@@ -391,10 +391,12 @@ def evaluate_output_with_llm(output_text: str, destination: str) -> dict:
         response = requests.post(
             "http://localhost:11434/api/generate",
             json=payload,
-            timeout=90,
+            timeout=180,  # qwen2.5 needs ~96s for a full travel report on CPU
         )
     except requests.exceptions.Timeout as e:
-        raise OllamaUnavailableError("Ollama request timed out (model too slow)") from e
+        raise OllamaUnavailableError(
+            "Ollama request timed out after 180s — model may be overloaded"
+        ) from e
     except requests.exceptions.ConnectionError as e:
         raise OllamaUnavailableError(f"Ollama connection error: {e}") from e
 
