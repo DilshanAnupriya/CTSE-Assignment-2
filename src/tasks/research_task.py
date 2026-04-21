@@ -45,11 +45,14 @@ Follow these exact steps:
 1. Call the 'Get Places and Activities' tool with destination="{destination}" to retrieve
    real data from the travel database.
 2. If you are unsure of the spelling, call 'List Available Destinations' first.
-3. Optionally call 'Get Top Rated Places' to identify the must-see highlights.
-4. Compile all findings into a well-structured research report.
+3. Call 'Get Top Rated Places' to identify the must-see highlights (top 3).
+4. Compile ALL findings into a well-structured research report. Include EVERY place
+   returned by the tool — do not truncate or drop any attraction.
 
 Your report MUST include:
-- A numbered list of the top tourist attractions with:
+- The top 3 highest-rated attractions clearly marked as highlights at the top.
+- ALL remaining attractions listed after the highlights (nothing omitted).
+- For every place include:
     * Place name and type (e.g., Cultural, Nature, Adventure)
     * Rating out of 5.0
     * Entry fee in USD
@@ -63,10 +66,12 @@ Do NOT invent or hallucinate places. Only use data returned by your tools.
 """,
         expected_output=f"""
 A comprehensive, structured travel research report for {destination} containing:
-1. A numbered list of 3–5 top tourist attractions with full details 
+1. The top 3 highest-rated tourist attractions highlighted first, with full details
    (name, type, rating, entry fee, best time, duration, description).
-2. A bulleted list of at least 3 recommended local activities.
-3. A brief overall destination recommendation (1–2 sentences).
+2. ALL remaining attractions listed after the top-3 section — every place from the
+   database must appear; nothing should be omitted.
+3. A bulleted list of at least 3 recommended local activities.
+4. A brief overall destination recommendation (1–2 sentences).
 """,
         agent=agent,
     )

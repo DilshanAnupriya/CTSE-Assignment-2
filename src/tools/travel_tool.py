@@ -199,15 +199,17 @@ def list_available_destinations() -> list[str]:
         return []
 
 
-def format_places_summary(destination: str) -> str:
+def format_places_summary(destination: str, top_n: int = 3) -> str:
     """
-    Generate a human-readable text summary of places and activities.
+    Generate a human-readable text summary of ALL places and activities.
 
-    This formats the raw data into a clean markdown-style report string
-    that the LLM agent can directly use in its output or pass to the next agent.
+    All retrieved places are included. The top-N highest-rated places are
+    listed first under a highlighted section; the remaining places follow
+    under "All Other Attractions" so nothing is hidden from the output.
 
     Args:
         destination (str): The destination city name.
+        top_n      (int):  Number of places to highlight as top-rated (default 3).
 
     Returns:
         str: A formatted multi-line string summarising the places and activities.
@@ -227,26 +229,49 @@ def format_places_summary(destination: str) -> str:
     places = result["places"]
     activities = result["activities"]
 
+    # Sort ALL places by rating descending so highlights come first
+    sorted_places = sorted(places, key=lambda p: p.get("rating", 0), reverse=True)
+    top_places = sorted_places[:top_n]
+    other_places = sorted_places[top_n:]
+
     lines: list[str] = [
         f"# Travel Research Report: {dest}",
         f"Total attractions found: {len(places)}",
         "",
-        "## Top Tourist Places",
     ]
 
-    for i, place in enumerate(places, start=1):
+    # ── Section 1: Top-rated highlights ──────────────────────────────────────
+    lines.append(f"## Top {len(top_places)} Must-See Attractions (Highest Rated)")
+
+    for i, place in enumerate(top_places, start=1):
         lines.append(f"\n### {i}. {place['name']}")
         lines.append(f"- **Type:** {place.get('type', 'N/A')}")
-        lines.append(f"- **Rating:** {place.get('rating', 'N/A')} / 5.0")
+        lines.append(f"- **Rating:** {place.get('rating', 'N/A')} / 5.0  [TOP RATED]")
         lines.append(f"- **Entry Fee:** ${place.get('entry_fee_usd', 0)} USD")
         lines.append(f"- **Best Time to Visit:** {place.get('best_time', 'N/A')}")
         lines.append(f"- **Recommended Duration:** {place.get('duration_hours', 'N/A')} hours")
         lines.append(f"- **Description:** {place.get('description', '')}")
 
+    # ── Section 2: All remaining places ──────────────────────────────────────
+    if other_places:
+        lines.append("\n## All Other Attractions")
+        for i, place in enumerate(other_places, start=len(top_places) + 1):
+            lines.append(f"\n### {i}. {place['name']}")
+            lines.append(f"- **Type:** {place.get('type', 'N/A')}")
+            lines.append(f"- **Rating:** {place.get('rating', 'N/A')} / 5.0")
+            lines.append(f"- **Entry Fee:** ${place.get('entry_fee_usd', 0)} USD")
+            lines.append(f"- **Best Time to Visit:** {place.get('best_time', 'N/A')}")
+            lines.append(f"- **Recommended Duration:** {place.get('duration_hours', 'N/A')} hours")
+            lines.append(f"- **Description:** {place.get('description', '')}")
+
+    # ── Section 3: Activities ─────────────────────────────────────────────────
     lines.append("\n## Recommended Activities")
     for activity in activities:
         lines.append(f"- {activity}")
 
     summary = "\n".join(lines)
-    logger.info("[TravelTool] Generated summary for '%s' (%d chars)", dest, len(summary))
+    logger.info(
+        "[TravelTool] Generated summary for '%s': %d total places (%d highlighted, %d others), %d chars",
+        dest, len(places), len(top_places), len(other_places), len(summary),
+    )
     return summary
