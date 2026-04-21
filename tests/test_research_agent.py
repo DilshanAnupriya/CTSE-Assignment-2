@@ -155,14 +155,16 @@ class TestDataStructureProperties:
             )
 
     @pytest.mark.parametrize("destination", VALID_DESTINATIONS)
-    def test_activities_are_list_of_strings(self, destination: str):
-        """Activities must be a list where every element is a non-empty string."""
+    def test_activities_are_list_of_objects(self, destination: str):
+        """Activities must be a list where every element is a structured dict."""
         result = get_places_and_activities(destination)
         activities = result["activities"]
         assert isinstance(activities, list)
         for activity in activities:
-            assert isinstance(activity, str) and len(activity.strip()) > 0, (
-                f"Invalid activity in {destination}: '{activity}'"
+            assert isinstance(activity, dict), f"Activity is not a dict: '{activity}'"
+            name = activity.get("name", "")
+            assert isinstance(name, str) and len(name.strip()) > 0, (
+                f"Invalid activity name in {destination}: '{name}'"
             )
 
 

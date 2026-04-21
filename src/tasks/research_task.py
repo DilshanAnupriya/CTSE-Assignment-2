@@ -48,39 +48,47 @@ Follow these exact steps:
 2. If you are unsure of the spelling, call 'List Available Destinations' first.
 3. Call 'Get Top Rated Places' to identify the must-see highlights (top 3).
 4. Compile ALL findings into a well-structured research report. Include EVERY place
-   returned by the tool.
+   and EVERY activity returned by the tool.
 5. Create a day-by-day itinerary (e.g., Day 1, Day 2, up to Day {days}) distributing the 
-   retrieved places and activities logically across the days. Suggest which places to 
+   retrieved places and activities logically across the days. Suggest which places and activities to 
    visit on each day, ensuring the top-rated ones are prioritized.
 
-Your report MUST include:
-- A brief overall recommendation sentence for this destination at the top.
-- A **Day-by-Day Itinerary** for exactly {days} days. For example:
-    **Day 1**
-    - Place 1 with full details
-    - Place 2 with full details
-    **Day 2**
-    ...
-- Ensure ALL retrieved attractions and recommended activities are distributed across the 
-  {days} days. Do not omit any place from the tool's output.
-- For every place include:
-    * Place name and type (e.g., Cultural, Nature, Adventure)
-    * Rating out of 5.0 (mention if it's a [TOP RATED] highlight)
-    * Entry fee in USD
-    * Best time to visit
-    * Recommended duration (hours)
-    * A brief description (2-3 sentences)
-- Include the unique local activities within the days as well.
+STRICT FORMATTING RULES:
+1. ALL content MUST begin with a brief overall recommendation sentence at the very TOP.
+2. Following the recommendation, output ONLY the Day-by-Day Itinerary (Day 1, Day 2, etc.). 
+   DO NOT create separate "Other Attractions" or "Recommended Activities" sections. EVERY SINGLE place and activity MUST be placed inside a specific day.
+3. YOU MUST NOT drop, skip, or omit any places or activities. ALL retrieved items must appear.
+4. For EVERY place and EVERY activity, you MUST list ALL of the following fields without skipping any:
+    - **Name**
+    - **Type**
+    - **Rating** out of 5.0 (Add [TOP RATED] if it is highly rated)
+    - **Entry Fee:** (e.g., $xx USD)
+    - **Best Time to Visit:**
+    - **Recommended Duration:**
+    - **Description:** (A full 2-3 sentence description)
+
+Example Format:
+### Overall Recommendation
+[Your 1-2 sentence recommendation here]
+
+**Day 1**
+- **[Name of Place/Activity]**
+  - Type: [Type]
+  - Rating: [Rating]
+  - Entry Fee: [Fee]
+  - Best Time to Visit: [Time]
+  - Recommended Duration: [Duration]
+  - Description: [Description]
+... (continue for all places and activities across the {days} days)
 
 Do NOT invent or hallucinate places. Only use data returned by your tools.
 """,
         expected_output=f"""
-A comprehensive, structured travel research report for {destination} over {days} days containing:
-1. A brief overall destination recommendation (1–2 sentences).
-2. A day-by-day itinerary (Day 1 to Day {days}) distributing ALL retrieved attractions 
-   and activities. Every place from the database must appear in the itinerary.
-3. Full details for each place (name, type, rating, entry fee, best time, duration, description).
-4. Identification of the top-rated highlights within the days they are allocated.
+A {days}-day structured travel itinerary for {destination} that STRICTLY MUST:
+1. Have the overall recommendation at the very TOP.
+2. Contain ONLY day-by-day sections (Day 1, Day 2, etc.) below the recommendation. No external lists of places/activities.
+3. Distribute ALL places and ALL activities from the tool output into the days. None can be missing.
+4. Show ALL required fields (Type, Rating, Entry Fee, Best Time, Duration, and Full Description) for EVERY place and EVERY activity.
 """,
         agent=agent,
     )

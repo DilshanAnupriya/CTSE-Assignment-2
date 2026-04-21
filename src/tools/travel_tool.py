@@ -266,8 +266,17 @@ def format_places_summary(destination: str, top_n: int = 3) -> str:
 
     # ── Section 3: Activities ─────────────────────────────────────────────────
     lines.append("\n## Recommended Activities")
-    for activity in activities:
-        lines.append(f"- {activity}")
+    for i, activity in enumerate(activities, start=1):
+        if isinstance(activity, dict):
+            lines.append(f"\n### {i}. {activity.get('name', 'N/A')}")
+            lines.append(f"- **Type:** {activity.get('type', 'N/A')}")
+            lines.append(f"- **Rating:** {activity.get('rating', 'N/A')} / 5.0")
+            lines.append(f"- **Entry Fee:** ${activity.get('entry_fee_usd', 0)} USD")
+            lines.append(f"- **Best Time to Visit:** {activity.get('best_time', 'N/A')}")
+            lines.append(f"- **Recommended Duration:** {activity.get('duration_hours', 'N/A')} hours")
+            lines.append(f"- **Description:** {activity.get('description', '')}")
+        else:
+            lines.append(f"- {activity}")
 
     summary = "\n".join(lines)
     logger.info(
