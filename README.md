@@ -17,6 +17,12 @@ The system uses multiple AI agents to:
 - Python
 - JSON (local dataset)
 
+## 👥 Members
+1. Dilshan Anupriya (Hotel Agent Module)
+2. Nadeema Jayasinghe (Research Agent Module)
+3. Vidura Hewaduwa (Budget Agent Module)
+4. Hirun Athukorala (Report Agent Module)
+
 ## 🤖 Agents
 1. Research Agent – finds places
 2. Hotel Agent – finds hotels
