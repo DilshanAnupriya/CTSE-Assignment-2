@@ -38,7 +38,7 @@ def create_crew(destination: str, days: int) -> Crew:
 
     # ── Task pipeline ─────────────────────────────────────────────────────────
     # Stage 1: Research Agent (your part) gathers places & activities
-    research = create_research_task(destination, llm)
+    research = create_research_task(destination, llm, days)
 
     # TODO (other members): add plan_task, budget_task, hotel_task, report_task
     tasks = [research]
