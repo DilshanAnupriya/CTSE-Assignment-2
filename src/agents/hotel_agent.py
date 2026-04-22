@@ -13,7 +13,7 @@ IMPORTANT:
 - This agent MUST use tools (not LLM memory) to retrieve hotel data.
 - It follows the same dataset used by the Research Agent for consistency.
 
-Author: Project Team (Hotel Agent Module)
+Author: Dilshan Anupriya (Hotel Agent Module)
 """
 
 import json

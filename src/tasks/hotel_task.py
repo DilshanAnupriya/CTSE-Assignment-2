@@ -8,7 +8,7 @@ The hotel task is responsible for:
   - Filtering and ranking hotels based on rating, price, and suitability.
   - Recommending the best hotels for the travel itinerary.
 
-Author: Project Team (Hotel Agent Module)
+Author: Dilshan Anupriya (Hotel Agent Module)
 """
 
 import logging

@@ -1,3 +1,12 @@
+"""
+Hotel Tool
+====================
+Custom tool for the Hotel Agent in the Sri Lanka Travel Planner MAS.
+Provides structured lookup of hotels for supported destinations.
+
+Author: Dilshan Anupriya (Hotel Agent Module)
+"""
+
 import json
 import os
 import logging
