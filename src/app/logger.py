@@ -20,11 +20,21 @@ logging.basicConfig(
 )
 
 
-def log(message: str) -> None:
+def get_logger(name: str) -> logging.Logger:
     """
-    Write an INFO-level log entry to the system log.
+    Create or retrieve a named logger for a specific module/agent.
 
     Args:
-        message (str): The log message to record.
+        name (str): Name of the logger (e.g., ResearchAgent, HotelAgent)
+
+    Returns:
+        logging.Logger
+    """
+    return logging.getLogger(name)
+
+
+def log(message: str) -> None:
+    """
+    Generic system-level log.
     """
     logging.getLogger("MAS").info(message)
