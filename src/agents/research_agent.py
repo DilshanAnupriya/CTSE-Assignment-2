@@ -25,7 +25,9 @@ from tools.travel_tool import (
     list_available_destinations,
 )
 
-logger = logging.getLogger(__name__)
+from app.logger import get_logger
+
+logger = get_logger("ResearchAgent")
 
 
 # ─────────────────────────────────────────────

@@ -13,6 +13,7 @@ Author: Project Team
 import logging
 from crewai import Crew, Process, LLM
 from tasks.research_task import create_research_task
+from tasks.hotel_task import create_hotel_task 
 
 logger = logging.getLogger(__name__)
 
@@ -39,9 +40,12 @@ def create_crew(destination: str, days: int) -> Crew:
     # ── Task pipeline ─────────────────────────────────────────────────────────
     # Stage 1: Research Agent (your part) gathers places & activities
     research = create_research_task(destination, llm, days)
+    hotel = create_hotel_task(destination, llm)
 
     # TODO (other members): add plan_task, budget_task, hotel_task, report_task
-    tasks = [research]
+    tasks = [
+        research,    #step 1: gather places & activities  (Nadeema)
+        hotel]       #step 2: recommend hotels  (dilshan)
 
     # ── Crew ──────────────────────────────────────────────────────────────────
     crew = Crew(
