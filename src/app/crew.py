@@ -14,6 +14,7 @@ import logging
 from crewai import Crew, Process, LLM
 from tasks.research_task import create_research_task
 from tasks.hotel_task import create_hotel_task 
+from tasks.budget_task import create_budget_task
 
 logger = logging.getLogger(__name__)
 
@@ -41,11 +42,13 @@ def create_crew(destination: str, days: int) -> Crew:
     # Stage 1: Research Agent (your part) gathers places & activities
     research = create_research_task(destination, llm, days)
     hotel = create_hotel_task(destination, llm)
+    budget = create_budget_task(destination, days, llm)
 
-    # TODO (other members): add plan_task, budget_task, hotel_task, report_task
+    # TODO (other members): add plan_task and report_task
     tasks = [
         research,    #step 1: gather places & activities  (Nadeema)
-        hotel]       #step 2: recommend hotels  (dilshan)
+        hotel,       #step 2: recommend hotels  (Dilshan)
+        budget]      #step 3: calculate trip budget  (Vidura)
 
     # ── Crew ──────────────────────────────────────────────────────────────────
     crew = Crew(
