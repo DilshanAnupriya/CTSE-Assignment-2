@@ -1,6 +1,8 @@
 import sys
 import os
 
+os.environ["CREWAI_TRACING_ENABLED"] = "true"
+
 # Fix import path for src
 sys.path.append(os.path.abspath("src"))
 
