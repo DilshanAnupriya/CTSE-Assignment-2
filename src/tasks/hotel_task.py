@@ -46,6 +46,7 @@ Your job is to:
    - Hotel type (luxury, boutique, budget, hostel)
 3. Select the BEST 3–5 hotels suitable for different types of travellers.
 4. Match hotels with the travel experience of {destination} (e.g., adventure, nature, cultural tourism).
+5. VERY IMPORTANT: Review the itinerary/context provided by the previous agent. You MUST group your hotel recommendations geographically. Suggest hotels that are nearest to the planned daily activities or main clusters of attractions in the itinerary to minimize daily travel time.
 
 STRICT OUTPUT FORMAT:
 
@@ -65,12 +66,13 @@ RULES:
 - ONLY use data from the provided hotel dataset.
 - Prioritize high-rated hotels first.
 - Ensure a mix of budget and premium options where possible.
+- GEOGRAPHICAL GROUPING: You MUST recommend and group hotels based on their proximity to the places and activities planned in the itinerary. Explain which day/activities each hotel is nearest to.
 """,
         expected_output=f"""
 A structured list of top hotel recommendations for {destination}, including:
 - Top 3–5 hotels
 - Ratings and prices
-- Clear reasoning for each recommendation
+- Clear reasoning for each recommendation, including geographical proximity to planned activities
 - Traveler suitability classification
 """,
         agent=agent,

@@ -14,6 +14,8 @@ import os
 import time
 import logging
 
+os.environ["CREWAI_TRACING_ENABLED"] = "true"
+
 # Silence tool-level logs so only clean demo output is visible to the panel
 logging.disable(logging.CRITICAL)
 
