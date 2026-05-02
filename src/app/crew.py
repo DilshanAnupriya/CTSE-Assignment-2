@@ -3,9 +3,7 @@ Crew Builder
 ============
 Constructs the CrewAI Crew that orchestrates all agents sequentially.
 
-Currently wires up the Research Task as the first pipeline stage.
-Other group members' tasks (plan_task, budget_task, hotel_task, report_task)
-will be added here as they are implemented.
+Builds the sequential workflow across the implemented project tasks.
 
 Author: Project Team
 """
@@ -13,6 +11,7 @@ Author: Project Team
 import logging
 from crewai import Crew, Process, LLM
 from tasks.research_task import create_research_task
+from tasks.budget_task import create_budget_task
 from tasks.hotel_task import create_hotel_task 
 from tasks.report_task import create_report_task
 
@@ -41,12 +40,13 @@ def create_crew(destination: str, days: int, interests: list[str] = None, trip_p
     # ── Task pipeline ─────────────────────────────────────────────────────────
     research = create_research_task(destination, llm, days, interests, trip_pace, transport_preference)
     hotel = create_hotel_task(destination, llm, budget, traveler_type, hotel_preference)
+    budget_estimate = create_budget_task(destination, days, llm, budget, transport_preference, hotel_preference)
     report = create_report_task(destination, days, llm)
-    # TODO (other members): add plan_task, budget_task
     tasks = [
         research,    #step 1: gather places & activities  (Nadeema)
         hotel,       #step 2: recommend hotels  (Dilshan)
-        report       #step 3: generate final report (Hirun)
+        budget_estimate,  #step 3: estimate travel budget  (Vidura)
+        report       #step 4: generate final report (Hirun)
     ]
 
     # ── Crew ──────────────────────────────────────────────────────────────────
