@@ -14,6 +14,7 @@ import logging
 from crewai import Crew, Process, LLM
 from tasks.research_task import create_research_task
 from tasks.hotel_task import create_hotel_task 
+from tasks.report_task import create_report_task
 
 logger = logging.getLogger(__name__)
 
@@ -38,14 +39,15 @@ def create_crew(destination: str, days: int, interests: list[str] = None, trip_p
     )
 
     # ── Task pipeline ─────────────────────────────────────────────────────────
-    # Stage 1: Research Agent (your part) gathers places & activities
     research = create_research_task(destination, llm, days, interests, trip_pace, transport_preference)
     hotel = create_hotel_task(destination, llm, budget, traveler_type, hotel_preference)
-
-    # TODO (other members): add plan_task, budget_task, hotel_task, report_task
+    report = create_report_task(destination, days, llm)
+    # TODO (other members): add plan_task, budget_task
     tasks = [
         research,    #step 1: gather places & activities  (Nadeema)
-        hotel]       #step 2: recommend hotels  (dilshan)
+        hotel,       #step 2: recommend hotels  (Dilshan)
+        report       #step 3: generate final report (Hirun)
+    ]
 
     # ── Crew ──────────────────────────────────────────────────────────────────
     crew = Crew(

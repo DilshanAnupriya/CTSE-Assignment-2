@@ -1,13 +1,11 @@
 import sys
 import os
-
 os.environ["CREWAI_TRACING_ENABLED"] = "true"
 
 # Fix import path for src
 sys.path.append(os.path.abspath("src"))
 
 from services.planner_service import run_travel_planner
-
 
 def main():
     print("=== Travel Planner MAS ===")
@@ -16,7 +14,7 @@ def main():
     destination = ""
     while not destination:
         destination = input("Enter destination (Kandy/Ella/Galle/Colombo) [Required]: ").strip()
-        
+
     days_str = ""
     while not days_str.isdigit():
         days_str = input("Enter number of days [Required]: ").strip()
@@ -30,6 +28,10 @@ def main():
     trip_pace = input("Enter trip pace (e.g., Relaxed, Moderate, Packed Schedule) [Optional]: ").strip() or None
     transport_preference = input("Enter transport preference (e.g., Walking-friendly, Public Transport, Taxi/Tuk-Tuk, Private Vehicle) [Optional]: ").strip() or None
 
+
+    trip_pace = input("Enter trip pace (e.g., Relaxed, Moderate, Packed Schedule) [Optional]: ").strip() or None
+    transport_preference = input("Enter transport preference (e.g., Walking-friendly, Public Transport, Taxi/Tuk-Tuk, Private Vehicle) [Optional]: ").strip() or None
+
     budget = input("Enter budget (e.g., Budget, Mid-range, Luxury) [Optional]: ").strip() or None
     traveler_type = input("Enter traveler type (e.g., Solo, Couple, Family, Friends, Business) [Optional]: ").strip() or None
     hotel_preference = input("Enter hotel preference (e.g., Luxury Hotel, Boutique Hotel, Budget Hotel, Hostel, Any) [Optional]: ").strip() or None
@@ -38,7 +40,6 @@ def main():
 
     print("\n===== FINAL TRAVEL PLAN =====\n")
     print(result)
-
 
 if __name__ == "__main__":
     main()
