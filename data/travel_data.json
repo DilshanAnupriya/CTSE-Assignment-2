@@ -149,7 +149,8 @@
           "Couple",
           "Friends",
           "Family"
-        ]
+        ],
+        "location_cluster": "Kandy Lake"
       },
       {
         "name": "Earl's Regency Hotel",
@@ -162,7 +163,8 @@
           "Friends",
           "Business",
           "Family"
-        ]
+        ],
+        "location_cluster": "Tennekumbura (Suburbs)"
       },
       {
         "name": "Theva Residency",
@@ -174,7 +176,8 @@
           "Couple",
           "Friends",
           "Family"
-        ]
+        ],
+        "location_cluster": "Hantana Hills"
       },
       {
         "name": "Camellia Hills Kandy",
@@ -185,7 +188,8 @@
         "suitable_for": [
           "Couple",
           "Friends"
-        ]
+        ],
+        "location_cluster": "Kandy City Center"
       }
     ]
   },
@@ -340,7 +344,8 @@
           "Friends",
           "Business",
           "Family"
-        ]
+        ],
+        "location_cluster": "Little Adam's Peak Area"
       },
       {
         "name": "Ella Flower Garden Resort",
@@ -352,7 +357,8 @@
           "Couple",
           "Friends",
           "Family"
-        ]
+        ],
+        "location_cluster": "Ella Town"
       },
       {
         "name": "Zion View Ella",
@@ -363,7 +369,8 @@
         "suitable_for": [
           "Couple",
           "Friends"
-        ]
+        ],
+        "location_cluster": "Ella Valley"
       },
       {
         "name": "Budget Ella Hostel",
@@ -375,7 +382,8 @@
           "Couple",
           "Friends",
           "Solo"
-        ]
+        ],
+        "location_cluster": "Ella Town Center"
       }
     ]
   },
@@ -530,7 +538,8 @@
           "Friends",
           "Business",
           "Family"
-        ]
+        ],
+        "location_cluster": "Galle Fort"
       },
       {
         "name": "Fort Bazaar Galle",
@@ -543,7 +552,8 @@
           "Friends",
           "Business",
           "Family"
-        ]
+        ],
+        "location_cluster": "Galle Fort"
       },
       {
         "name": "The Fortress Resort & Spa",
@@ -556,7 +566,8 @@
           "Friends",
           "Business",
           "Family"
-        ]
+        ],
+        "location_cluster": "Galle Fort"
       },
       {
         "name": "Galle Fort Hotel",
@@ -569,7 +580,8 @@
           "Friends",
           "Business",
           "Family"
-        ]
+        ],
+        "location_cluster": "Galle Fort"
       }
     ]
   },
@@ -699,7 +711,8 @@
           "Friends",
           "Business",
           "Family"
-        ]
+        ],
+        "location_cluster": "Galle Face/Kollupitiya"
       },
       {
         "name": "Cinnamon Grand Colombo",
@@ -712,7 +725,8 @@
           "Friends",
           "Business",
           "Family"
-        ]
+        ],
+        "location_cluster": "Galle Face/Kollupitiya"
       },
       {
         "name": "OZO Colombo",
@@ -724,7 +738,8 @@
           "Couple",
           "Friends",
           "Family"
-        ]
+        ],
+        "location_cluster": "Colombo City Center"
       },
       {
         "name": "Colombo City Hostel",
@@ -736,7 +751,8 @@
           "Couple",
           "Friends",
           "Solo"
-        ]
+        ],
+        "location_cluster": "Colombo City Center"
       }
     ]
   }
