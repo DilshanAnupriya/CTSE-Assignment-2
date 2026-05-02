@@ -246,6 +246,8 @@ def format_places_summary(destination: str, top_n: int = 3) -> str:
     for i, place in enumerate(top_places, start=1):
         lines.append(f"\n### {i}. {place['name']}")
         lines.append(f"- **Type:** {place.get('type', 'N/A')}")
+        if 'tags' in place:
+            lines.append(f"- **Tags:** {', '.join(place['tags'])}")
         lines.append(f"- **Rating:** {place.get('rating', 'N/A')} / 5.0  [TOP RATED]")
         lines.append(f"- **Entry Fee:** ${place.get('entry_fee_usd', 0)} USD")
         lines.append(f"- **Best Time to Visit:** {place.get('best_time', 'N/A')}")
@@ -258,6 +260,8 @@ def format_places_summary(destination: str, top_n: int = 3) -> str:
         for i, place in enumerate(other_places, start=len(top_places) + 1):
             lines.append(f"\n### {i}. {place['name']}")
             lines.append(f"- **Type:** {place.get('type', 'N/A')}")
+            if 'tags' in place:
+                lines.append(f"- **Tags:** {', '.join(place['tags'])}")
             lines.append(f"- **Rating:** {place.get('rating', 'N/A')} / 5.0")
             lines.append(f"- **Entry Fee:** ${place.get('entry_fee_usd', 0)} USD")
             lines.append(f"- **Best Time to Visit:** {place.get('best_time', 'N/A')}")
@@ -270,6 +274,8 @@ def format_places_summary(destination: str, top_n: int = 3) -> str:
         if isinstance(activity, dict):
             lines.append(f"\n### {i}. {activity.get('name', 'N/A')}")
             lines.append(f"- **Type:** {activity.get('type', 'N/A')}")
+            if 'tags' in activity:
+                lines.append(f"- **Tags:** {', '.join(activity['tags'])}")
             lines.append(f"- **Rating:** {activity.get('rating', 'N/A')} / 5.0")
             lines.append(f"- **Entry Fee:** ${activity.get('entry_fee_usd', 0)} USD")
             lines.append(f"- **Best Time to Visit:** {activity.get('best_time', 'N/A')}")
