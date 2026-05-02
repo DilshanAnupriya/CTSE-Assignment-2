@@ -50,8 +50,7 @@ Follow these exact steps:
 4. Compile ALL findings into a well-structured research report. Include EVERY place
    and EVERY activity returned by the tool.
 5. Create a day-by-day itinerary (e.g., Day 1, Day 2, up to Day {days}) distributing the 
-   retrieved places and activities logically across the days. Suggest which places and activities to 
-   visit on each day, ensuring the top-rated ones are prioritized.
+   retrieved places and activities logically across the days. VERY IMPORTANT: You MUST group places geographically. For any given day, select places and activities that are nearest to each other to minimize travel time. The next day should focus on a different geographical cluster of nearby locations. Ensure the top-rated ones are prioritized within this geographical grouping.
 
 STRICT FORMATTING RULES:
 1. ALL content MUST begin with a brief overall recommendation sentence at the very TOP.
