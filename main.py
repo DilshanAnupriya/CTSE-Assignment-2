@@ -30,7 +30,11 @@ def main():
     trip_pace = input("Enter trip pace (e.g., Relaxed, Moderate, Packed Schedule) [Optional]: ").strip() or None
     transport_preference = input("Enter transport preference (e.g., Walking-friendly, Public Transport, Taxi/Tuk-Tuk, Private Vehicle) [Optional]: ").strip() or None
 
-    result = run_travel_planner(destination, days, interests, trip_pace, transport_preference)
+    budget = input("Enter budget (e.g., Budget, Mid-range, Luxury) [Optional]: ").strip() or None
+    traveler_type = input("Enter traveler type (e.g., Solo, Couple, Family, Friends, Business) [Optional]: ").strip() or None
+    hotel_preference = input("Enter hotel preference (e.g., Luxury Hotel, Boutique Hotel, Budget Hotel, Hostel, Any) [Optional]: ").strip() or None
+
+    result = run_travel_planner(destination, days, interests, trip_pace, transport_preference, budget, traveler_type, hotel_preference)
 
     print("\n===== FINAL TRAVEL PLAN =====\n")
     print(result)

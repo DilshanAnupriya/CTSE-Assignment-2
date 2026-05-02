@@ -143,25 +143,49 @@
         "name": "Hotel Suisse Kandy",
         "price_per_night_usd": 85,
         "rating": 4.2,
-        "type": "Heritage"
+        "type": "Heritage",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Family"
+        ]
       },
       {
         "name": "Earl's Regency Hotel",
         "price_per_night_usd": 120,
         "rating": 4.5,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ]
       },
       {
         "name": "Theva Residency",
         "price_per_night_usd": 65,
         "rating": 4.1,
-        "type": "Boutique"
+        "type": "Boutique",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Family"
+        ]
       },
       {
         "name": "Camellia Hills Kandy",
         "price_per_night_usd": 50,
         "rating": 3.9,
-        "type": "Budget"
+        "type": "Budget",
+        "budget_category": "Budget",
+        "suitable_for": [
+          "Couple",
+          "Friends"
+        ]
       }
     ]
   },
@@ -309,25 +333,49 @@
         "name": "98 Acres Resort & Spa",
         "price_per_night_usd": 180,
         "rating": 4.8,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ]
       },
       {
         "name": "Ella Flower Garden Resort",
         "price_per_night_usd": 90,
         "rating": 4.4,
-        "type": "Boutique"
+        "type": "Boutique",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Family"
+        ]
       },
       {
         "name": "Zion View Ella",
         "price_per_night_usd": 55,
         "rating": 4.2,
-        "type": "Guesthouse"
+        "type": "Guesthouse",
+        "budget_category": "Budget",
+        "suitable_for": [
+          "Couple",
+          "Friends"
+        ]
       },
       {
         "name": "Budget Ella Hostel",
         "price_per_night_usd": 18,
         "rating": 3.7,
-        "type": "Hostel"
+        "type": "Hostel",
+        "budget_category": "Budget",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Solo"
+        ]
       }
     ]
   },
@@ -475,25 +523,53 @@
         "name": "Amangalla (Heritage Hotel)",
         "price_per_night_usd": 450,
         "rating": 4.9,
-        "type": "Ultra-Luxury"
+        "type": "Ultra-Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ]
       },
       {
         "name": "Fort Bazaar Galle",
         "price_per_night_usd": 220,
         "rating": 4.7,
-        "type": "Luxury Boutique"
+        "type": "Luxury Boutique",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ]
       },
       {
         "name": "The Fortress Resort & Spa",
         "price_per_night_usd": 175,
         "rating": 4.6,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ]
       },
       {
         "name": "Galle Fort Hotel",
         "price_per_night_usd": 110,
         "rating": 4.4,
-        "type": "Boutique"
+        "type": "Boutique",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ]
       }
     ]
   },
@@ -616,25 +692,51 @@
         "name": "Shangri-La Hotel Colombo",
         "price_per_night_usd": 280,
         "rating": 4.8,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ]
       },
       {
         "name": "Cinnamon Grand Colombo",
         "price_per_night_usd": 195,
         "rating": 4.6,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ]
       },
       {
         "name": "OZO Colombo",
         "price_per_night_usd": 85,
         "rating": 4.1,
-        "type": "Business"
+        "type": "Business",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Family"
+        ]
       },
       {
         "name": "Colombo City Hostel",
         "price_per_night_usd": 20,
         "rating": 3.8,
-        "type": "Hostel"
+        "type": "Hostel",
+        "budget_category": "Budget",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Solo"
+        ]
       }
     ]
   }

@@ -18,7 +18,7 @@ from tasks.hotel_task import create_hotel_task
 logger = logging.getLogger(__name__)
 
 
-def create_crew(destination: str, days: int, interests: list[str] = None, trip_pace: str = None, transport_preference: str = None) -> Crew:
+def create_crew(destination: str, days: int, interests: list[str] = None, trip_pace: str = None, transport_preference: str = None, budget: str = None, traveler_type: str = None, hotel_preference: str = None) -> Crew:
     """
     Build and return the travel planner Crew.
 
@@ -40,7 +40,7 @@ def create_crew(destination: str, days: int, interests: list[str] = None, trip_p
     # ── Task pipeline ─────────────────────────────────────────────────────────
     # Stage 1: Research Agent (your part) gathers places & activities
     research = create_research_task(destination, llm, days, interests, trip_pace, transport_preference)
-    hotel = create_hotel_task(destination, llm)
+    hotel = create_hotel_task(destination, llm, budget, traveler_type, hotel_preference)
 
     # TODO (other members): add plan_task, budget_task, hotel_task, report_task
     tasks = [

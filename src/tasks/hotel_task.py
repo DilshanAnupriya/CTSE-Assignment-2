@@ -18,7 +18,7 @@ from agents.hotel_agent import create_hotel_agent
 logger = logging.getLogger(__name__)
 
 
-def create_hotel_task(destination: str, llm) -> Task:
+def create_hotel_task(destination: str, llm, budget: str = None, traveler_type: str = None, hotel_preference: str = None) -> Task:
     """
     Build and return the hotel recommendation task.
 
@@ -34,6 +34,18 @@ def create_hotel_task(destination: str, llm) -> Task:
 
     agent = create_hotel_agent(llm)
 
+    preferences_text = []
+    if budget:
+        preferences_text.append(f"- **Budget:** {budget}")
+    if traveler_type:
+        preferences_text.append(f"- **Traveler Type:** {traveler_type}")
+    if hotel_preference:
+        preferences_text.append(f"- **Hotel Preference:** {hotel_preference}")
+    
+    preferences_section = ""
+    if preferences_text:
+        preferences_section = "\n**USER HOTEL PREFERENCES:**\n" + "\n".join(preferences_text) + "\n\nCRITICAL INSTRUCTION: You MUST filter and prioritize the hotels based on these preferences! Select hotels that match the specified budget category, traveler type, and preferred hotel type."
+
     task = Task(
         description=f"""
 You are a Hotel Recommendation Specialist for the destination: **{destination}**.
@@ -44,7 +56,8 @@ Your job is to:
    - Rating (most important)
    - Price per night (budget vs luxury balance)
    - Hotel type (luxury, boutique, budget, hostel)
-3. Select the BEST 3–5 hotels suitable for different types of travellers.
+   - Suitable traveler types{preferences_section}
+3. Select the BEST 3–5 hotels suitable for different types of travellers, prioritizing those matching the user preferences above.
 4. Match hotels with the travel experience of {destination} (e.g., adventure, nature, cultural tourism).
 5. VERY IMPORTANT: Review the itinerary/context provided by the previous agent. You MUST group your hotel recommendations geographically. Suggest hotels that are nearest to the planned daily activities or main clusters of attractions in the itinerary to minimize daily travel time.
 

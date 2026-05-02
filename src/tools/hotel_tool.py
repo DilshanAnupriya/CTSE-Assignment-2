@@ -65,6 +65,10 @@ def format_hotels(destination: str) -> str:
     for i, h in enumerate(hotels, 1):
         lines.append(f"### {i}. {h['name']}")
         lines.append(f"- Type: {h.get('type')}")
+        if 'budget_category' in h:
+            lines.append(f"- Budget Category: {h['budget_category']}")
+        if 'suitable_for' in h:
+            lines.append(f"- Suitable For: {', '.join(h['suitable_for'])}")
         lines.append(f"- Rating: {h.get('rating')}/5.0")
         lines.append(f"- Price: ${h.get('price_per_night_usd')} per night\n")
 
