@@ -75,6 +75,7 @@ Your job is to:
      * Family -> prioritize spacious/family-oriented stays.
      * Friends -> prioritize group-friendly/social stays.
    - Hostel should NOT be recommended for couples/families unless no better matching alternatives exist.
+   - HOTEL PREFERENCE DISTINCTION: "Budget Hotel" and "Hostel" are distinctly different categories. If the user explicitly selects "Budget Hotel", you must prioritize properties that are actually classified as Budget Hotels or Guesthouses, NOT Hostels. Only recommend Hostels if the user selects "Hostel" or if there are absolutely no other budget options.
    - If a recommendation partially matches preferences, explain why it was included in your reasoning.
 
 STRICT OUTPUT FORMAT:
@@ -92,12 +93,12 @@ For EACH recommended hotel, include:
 - **Best For** (e.g., luxury travelers, backpackers, couples, etc.)
 
 RULES:
-- Do NOT invent hotels.
+- Do NOT invent hotels. YOU MUST ONLY use the EXACT hotel names returned by your tool. Do not invent things like 'The Pod Hostel Colombo'. If a hotel is not in the tool output, it does not exist.
 - ONLY use data from the provided hotel dataset.
 - Prioritize high-rated hotels first.
 - Ensure a mix of budget and premium options where possible.
 - GEOGRAPHICAL GROUPING: Use only the explicit "Location" field. Apply fallback text if precise mapping is unavailable.
-- NO HALLUCINATION: All praises must match the actual hotel Type and Rating.
+- NO HALLUCINATION: All praises must match the actual hotel Type and Rating. Do not hallucinate properties or amenities.
 - HARD FILTERS: Budget and Traveler Type rules MUST be strictly followed or explicitly justified with the fallback string.
 """,
         expected_output=f"""
