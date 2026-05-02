@@ -18,7 +18,7 @@ from agents.research_agent import create_research_agent
 logger = logging.getLogger(__name__)
 
 
-def create_research_task(destination: str, llm, days: int) -> Task:
+def create_research_task(destination: str, llm, days: int, interests: list[str] = None, trip_pace: str = None, transport_preference: str = None) -> Task:
     """
     Build and return the research task for the given destination.
 
@@ -37,27 +37,37 @@ def create_research_task(destination: str, llm, days: int) -> Task:
 
     agent = create_research_agent(llm)
 
+    preferences_text = []
+    if interests:
+        preferences_text.append(f"- **Interests:** {', '.join(interests)}")
+    if trip_pace:
+        preferences_text.append(f"- **Trip Pace:** {trip_pace}")
+    if transport_preference:
+        preferences_text.append(f"- **Transport Preference:** {transport_preference}")
+    
+    preferences_section = ""
+    if preferences_text:
+        preferences_section = "\n**USER PREFERENCES:**\n" + "\n".join(preferences_text) + "\n\nCRITICAL INSTRUCTION: You MUST filter and prioritize the places and activities based on these preferences! Only include places that align with the user's interests. Adjust the number of places per day according to the Trip Pace. Consider the Transport Preference when calculating feasibility."
+
     task = Task(
         description=f"""
 You are researching tourist places and activities for the destination: **{destination}**.
-You need to plan an itinerary for **{days} days**.
+You need to plan an itinerary for **{days} days**.{preferences_section}
 
 Follow these exact steps:
 1. Call the 'Get Places and Activities' tool with destination="{destination}" to retrieve
    real data from the travel database.
 2. If you are unsure of the spelling, call 'List Available Destinations' first.
-3. Call 'Get Top Rated Places' to identify the must-see highlights (top 3).
-4. Compile ALL findings into a well-structured research report. Include EVERY place
-   and EVERY activity returned by the tool.
+3. Call 'Get Top Rated Places' to identify the must-see highlights.
+4. Compile ALL findings that match the user's preferences into a well-structured research report.
 5. Create a day-by-day itinerary (e.g., Day 1, Day 2, up to Day {days}) distributing the 
    retrieved places and activities logically across the days. VERY IMPORTANT: You MUST group places geographically. For any given day, select places and activities that are nearest to each other to minimize travel time. The next day should focus on a different geographical cluster of nearby locations. Ensure the top-rated ones are prioritized within this geographical grouping.
 
 STRICT FORMATTING RULES:
 1. ALL content MUST begin with a brief overall recommendation sentence at the very TOP.
 2. Following the recommendation, output ONLY the Day-by-Day Itinerary (Day 1, Day 2, etc.). 
-   DO NOT create separate "Other Attractions" or "Recommended Activities" sections. EVERY SINGLE place and activity MUST be placed inside a specific day.
-3. YOU MUST NOT drop, skip, or omit any places or activities. ALL retrieved items must appear.
-4. For EVERY place and EVERY activity, you MUST list ALL of the following fields without skipping any:
+   DO NOT create separate "Other Attractions" or "Recommended Activities" sections.
+3. For EVERY place and EVERY activity, you MUST list ALL of the following fields without skipping any:
     - **Name**
     - **Type**
     - **Rating** out of 5.0 (Add [TOP RATED] if it is highly rated)
@@ -78,7 +88,7 @@ Example Format:
   - Best Time to Visit: [Time]
   - Recommended Duration: [Duration]
   - Description: [Description]
-... (continue for all places and activities across the {days} days)
+... (continue for the filtered places and activities across the {days} days)
 
 Do NOT invent or hallucinate places. Only use data returned by your tools.
 """,
@@ -86,8 +96,7 @@ Do NOT invent or hallucinate places. Only use data returned by your tools.
 A {days}-day structured travel itinerary for {destination} that STRICTLY MUST:
 1. Have the overall recommendation at the very TOP.
 2. Contain ONLY day-by-day sections (Day 1, Day 2, etc.) below the recommendation. No external lists of places/activities.
-3. Distribute ALL places and ALL activities from the tool output into the days. None can be missing.
-4. Show ALL required fields (Type, Rating, Entry Fee, Best Time, Duration, and Full Description) for EVERY place and EVERY activity.
+3. Show ALL required fields (Type, Rating, Entry Fee, Best Time, Duration, and Full Description) for EVERY place and EVERY activity.
 """,
         agent=agent,
     )

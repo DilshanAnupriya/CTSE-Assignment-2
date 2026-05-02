@@ -24,9 +24,14 @@ def main():
     print("\n--- Optional Preferences ---")
     interests_input = input("Enter interests (comma separated, e.g., Adventure, Nature, Cultural, Relaxation, Food, Shopping, Mixed) [Optional]: ").strip()
     interests = [i.strip() for i in interests_input.split(",")] if interests_input else None
+    
+    trip_pace = input("Enter trip pace (e.g., Relaxed, Moderate, Packed Schedule) [Optional]: ").strip() or None
+    transport_preference = input("Enter transport preference (e.g., Walking-friendly, Public Transport, Taxi/Tuk-Tuk, Private Vehicle) [Optional]: ").strip() or None
+
 
     trip_pace = input("Enter trip pace (e.g., Relaxed, Moderate, Packed Schedule) [Optional]: ").strip() or None
     transport_preference = input("Enter transport preference (e.g., Walking-friendly, Public Transport, Taxi/Tuk-Tuk, Private Vehicle) [Optional]: ").strip() or None
+
     budget = input("Enter budget (e.g., Budget, Mid-range, Luxury) [Optional]: ").strip() or None
     traveler_type = input("Enter traveler type (e.g., Solo, Couple, Family, Friends, Business) [Optional]: ").strip() or None
     hotel_preference = input("Enter hotel preference (e.g., Luxury Hotel, Boutique Hotel, Budget Hotel, Hostel, Any) [Optional]: ").strip() or None

@@ -8,7 +8,10 @@
         "rating": 4.8,
         "entry_fee_usd": 15,
         "best_time": "Morning or evening puja ceremony (6am, 9:30am, 6:30pm)",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Cultural"
+        ]
       },
       {
         "name": "Kandy Lake (Kiri Muhuda)",
@@ -17,7 +20,10 @@
         "rating": 4.5,
         "entry_fee_usd": 0,
         "best_time": "Early morning or sunset",
-        "duration_hours": 1
+        "duration_hours": 1,
+        "tags": [
+          "Nature"
+        ]
       },
       {
         "name": "Royal Botanical Gardens, Peradeniya",
@@ -26,7 +32,10 @@
         "rating": 4.7,
         "entry_fee_usd": 15,
         "best_time": "Morning",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Nature"
+        ]
       },
       {
         "name": "Kandy Cultural Centre & Dance Show",
@@ -35,7 +44,10 @@
         "rating": 4.3,
         "entry_fee_usd": 10,
         "best_time": "Evening (show starts at 5:30pm)",
-        "duration_hours": 1.5
+        "duration_hours": 1.5,
+        "tags": [
+          "Mixed"
+        ]
       },
       {
         "name": "Udawatta Kele Sanctuary",
@@ -44,7 +56,10 @@
         "rating": 4.2,
         "entry_fee_usd": 5,
         "best_time": "Morning",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Nature"
+        ]
       }
     ],
     "activities": [
@@ -55,7 +70,10 @@
         "rating": 4.3,
         "entry_fee_usd": 5,
         "best_time": "Early Morning",
-        "duration_hours": 1
+        "duration_hours": 1,
+        "tags": [
+          "Adventure"
+        ]
       },
       {
         "name": "Cooking class with local family",
@@ -64,7 +82,11 @@
         "rating": 4.8,
         "entry_fee_usd": 20,
         "best_time": "Lunch or Dinner",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Cultural",
+          "Food"
+        ]
       },
       {
         "name": "Tea tasting at a local tea house",
@@ -73,7 +95,10 @@
         "rating": 4.5,
         "entry_fee_usd": 10,
         "best_time": "Afternoon",
-        "duration_hours": 1
+        "duration_hours": 1,
+        "tags": [
+          "Food"
+        ]
       },
       {
         "name": "Shopping at Kandy City Centre Mall",
@@ -82,7 +107,10 @@
         "rating": 4.0,
         "entry_fee_usd": 0,
         "best_time": "Anytime",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Shopping"
+        ]
       },
       {
         "name": "Visit local gem museum",
@@ -91,7 +119,11 @@
         "rating": 4.2,
         "entry_fee_usd": 0,
         "best_time": "Morning",
-        "duration_hours": 1
+        "duration_hours": 1,
+        "tags": [
+          "Cultural",
+          "Shopping"
+        ]
       },
       {
         "name": "Sunset walk along Bahirawakanda Temple hill",
@@ -100,7 +132,10 @@
         "rating": 4.6,
         "entry_fee_usd": 0,
         "best_time": "Late Afternoon",
-        "duration_hours": 1.5
+        "duration_hours": 1.5,
+        "tags": [
+          "Nature"
+        ]
       }
     ],
     "hotels": [
@@ -108,25 +143,53 @@
         "name": "Hotel Suisse Kandy",
         "price_per_night_usd": 85,
         "rating": 4.2,
-        "type": "Heritage"
+        "type": "Heritage",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Family"
+        ],
+        "location_cluster": "Kandy Lake"
       },
       {
         "name": "Earl's Regency Hotel",
         "price_per_night_usd": 120,
         "rating": 4.5,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ],
+        "location_cluster": "Tennekumbura (Suburbs)"
       },
       {
         "name": "Theva Residency",
         "price_per_night_usd": 65,
         "rating": 4.1,
-        "type": "Boutique"
+        "type": "Boutique",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Family"
+        ],
+        "location_cluster": "Hantana Hills"
       },
       {
         "name": "Camellia Hills Kandy",
         "price_per_night_usd": 50,
         "rating": 3.9,
-        "type": "Budget"
+        "type": "Budget",
+        "budget_category": "Budget",
+        "suitable_for": [
+          "Couple",
+          "Friends"
+        ],
+        "location_cluster": "Kandy City Center"
       }
     ]
   },
@@ -139,7 +202,10 @@
         "rating": 4.9,
         "entry_fee_usd": 0,
         "best_time": "7-8am or 3-4pm when trains pass",
-        "duration_hours": 1.5
+        "duration_hours": 1.5,
+        "tags": [
+          "Nature"
+        ]
       },
       {
         "name": "Little Adam's Peak",
@@ -148,7 +214,11 @@
         "rating": 4.7,
         "entry_fee_usd": 0,
         "best_time": "Sunrise (5:30-7am)",
-        "duration_hours": 2.5
+        "duration_hours": 2.5,
+        "tags": [
+          "Nature",
+          "Adventure"
+        ]
       },
       {
         "name": "Ella Rock",
@@ -157,7 +227,10 @@
         "rating": 4.8,
         "entry_fee_usd": 0,
         "best_time": "Early morning (6am start)",
-        "duration_hours": 5
+        "duration_hours": 5,
+        "tags": [
+          "Adventure"
+        ]
       },
       {
         "name": "Ravana Falls",
@@ -166,7 +239,10 @@
         "rating": 4.4,
         "entry_fee_usd": 2,
         "best_time": "Morning",
-        "duration_hours": 1
+        "duration_hours": 1,
+        "tags": [
+          "Nature"
+        ]
       },
       {
         "name": "Diyaluma Falls",
@@ -175,7 +251,10 @@
         "rating": 4.6,
         "entry_fee_usd": 0,
         "best_time": "Dry season mornings",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Nature"
+        ]
       }
     ],
     "activities": [
@@ -186,7 +265,10 @@
         "rating": 4.9,
         "entry_fee_usd": 15,
         "best_time": "Morning",
-        "duration_hours": 6
+        "duration_hours": 6,
+        "tags": [
+          "Nature"
+        ]
       },
       {
         "name": "Tea plantation tour and factory visit",
@@ -195,7 +277,10 @@
         "rating": 4.6,
         "entry_fee_usd": 5,
         "best_time": "Morning",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Cultural"
+        ]
       },
       {
         "name": "White water rafting on Kelani River",
@@ -204,7 +289,10 @@
         "rating": 4.7,
         "entry_fee_usd": 30,
         "best_time": "Morning",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Adventure"
+        ]
       },
       {
         "name": "Zip-lining over the jungle canopy",
@@ -213,7 +301,10 @@
         "rating": 4.8,
         "entry_fee_usd": 25,
         "best_time": "Morning/Afternoon",
-        "duration_hours": 1
+        "duration_hours": 1,
+        "tags": [
+          "Adventure"
+        ]
       },
       {
         "name": "Yoga and meditation retreat",
@@ -222,7 +313,10 @@
         "rating": 4.5,
         "entry_fee_usd": 15,
         "best_time": "Early Morning",
-        "duration_hours": 1.5
+        "duration_hours": 1.5,
+        "tags": [
+          "Relaxation"
+        ]
       },
       {
         "name": "Night sky watching (minimal light pollution)",
@@ -231,7 +325,11 @@
         "rating": 4.4,
         "entry_fee_usd": 0,
         "best_time": "Night",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Nature",
+          "Relaxation"
+        ]
       }
     ],
     "hotels": [
@@ -239,25 +337,53 @@
         "name": "98 Acres Resort & Spa",
         "price_per_night_usd": 180,
         "rating": 4.8,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ],
+        "location_cluster": "Little Adam's Peak Area"
       },
       {
         "name": "Ella Flower Garden Resort",
         "price_per_night_usd": 90,
         "rating": 4.4,
-        "type": "Boutique"
+        "type": "Boutique",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Family"
+        ],
+        "location_cluster": "Ella Town"
       },
       {
         "name": "Zion View Ella",
         "price_per_night_usd": 55,
         "rating": 4.2,
-        "type": "Guesthouse"
+        "type": "Guesthouse",
+        "budget_category": "Budget",
+        "suitable_for": [
+          "Couple",
+          "Friends"
+        ],
+        "location_cluster": "Ella Valley"
       },
       {
         "name": "Budget Ella Hostel",
         "price_per_night_usd": 18,
         "rating": 3.7,
-        "type": "Hostel"
+        "type": "Hostel",
+        "budget_category": "Budget",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Solo"
+        ],
+        "location_cluster": "Ella Town Center"
       }
     ]
   },
@@ -270,7 +396,10 @@
         "rating": 4.9,
         "entry_fee_usd": 0,
         "best_time": "Late afternoon for sunset walk on ramparts",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Cultural"
+        ]
       },
       {
         "name": "Unawatuna Beach",
@@ -279,7 +408,10 @@
         "rating": 4.6,
         "entry_fee_usd": 0,
         "best_time": "Morning (avoid peak noon heat)",
-        "duration_hours": 4
+        "duration_hours": 4,
+        "tags": [
+          "Relaxation"
+        ]
       },
       {
         "name": "Jungle Beach (Rumassala)",
@@ -288,7 +420,11 @@
         "rating": 4.7,
         "entry_fee_usd": 0,
         "best_time": "Morning",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Nature",
+          "Relaxation"
+        ]
       },
       {
         "name": "Galle Lighthouse",
@@ -297,7 +433,10 @@
         "rating": 4.3,
         "entry_fee_usd": 2,
         "best_time": "Afternoon",
-        "duration_hours": 0.5
+        "duration_hours": 0.5,
+        "tags": [
+          "Nature"
+        ]
       },
       {
         "name": "Sea Turtle Hatchery (Kosgoda)",
@@ -306,7 +445,10 @@
         "rating": 4.5,
         "entry_fee_usd": 5,
         "best_time": "Morning",
-        "duration_hours": 1.5
+        "duration_hours": 1.5,
+        "tags": [
+          "Mixed"
+        ]
       }
     ],
     "activities": [
@@ -317,7 +459,10 @@
         "rating": 4.8,
         "entry_fee_usd": 20,
         "best_time": "Morning",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Adventure"
+        ]
       },
       {
         "name": "Whale watching boat tour",
@@ -326,7 +471,10 @@
         "rating": 4.6,
         "entry_fee_usd": 40,
         "best_time": "November to April (early morning)",
-        "duration_hours": 4
+        "duration_hours": 4,
+        "tags": [
+          "Adventure"
+        ]
       },
       {
         "name": "Snorkeling and diving in coral reef",
@@ -335,7 +483,10 @@
         "rating": 4.7,
         "entry_fee_usd": 25,
         "best_time": "Morning",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Adventure"
+        ]
       },
       {
         "name": "Sunset glass-bottom boat ride",
@@ -344,7 +495,10 @@
         "rating": 4.3,
         "entry_fee_usd": 15,
         "best_time": "Late Afternoon",
-        "duration_hours": 1.5
+        "duration_hours": 1.5,
+        "tags": [
+          "Nature"
+        ]
       },
       {
         "name": "Shopping handcraft souvenirs inside the Fort",
@@ -353,7 +507,10 @@
         "rating": 4.5,
         "entry_fee_usd": 0,
         "best_time": "Afternoon",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Shopping"
+        ]
       },
       {
         "name": "Cooking class \u2014 traditional Sri Lankan seafood curry",
@@ -362,7 +519,11 @@
         "rating": 4.8,
         "entry_fee_usd": 25,
         "best_time": "Evening",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Cultural",
+          "Food"
+        ]
       }
     ],
     "hotels": [
@@ -370,25 +531,57 @@
         "name": "Amangalla (Heritage Hotel)",
         "price_per_night_usd": 450,
         "rating": 4.9,
-        "type": "Ultra-Luxury"
+        "type": "Ultra-Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ],
+        "location_cluster": "Galle Fort"
       },
       {
         "name": "Fort Bazaar Galle",
         "price_per_night_usd": 220,
         "rating": 4.7,
-        "type": "Luxury Boutique"
+        "type": "Luxury Boutique",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ],
+        "location_cluster": "Galle Fort"
       },
       {
         "name": "The Fortress Resort & Spa",
         "price_per_night_usd": 175,
         "rating": 4.6,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ],
+        "location_cluster": "Galle Fort"
       },
       {
         "name": "Galle Fort Hotel",
         "price_per_night_usd": 110,
         "rating": 4.4,
-        "type": "Boutique"
+        "type": "Boutique",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ],
+        "location_cluster": "Galle Fort"
       }
     ]
   },
@@ -401,7 +594,10 @@
         "rating": 4.6,
         "entry_fee_usd": 3,
         "best_time": "Morning",
-        "duration_hours": 1.5
+        "duration_hours": 1.5,
+        "tags": [
+          "Cultural"
+        ]
       },
       {
         "name": "Pettah Market",
@@ -410,7 +606,10 @@
         "rating": 4.3,
         "entry_fee_usd": 0,
         "best_time": "Weekday morning",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Shopping"
+        ]
       },
       {
         "name": "Galle Face Green",
@@ -419,7 +618,10 @@
         "rating": 4.5,
         "entry_fee_usd": 0,
         "best_time": "Evening",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Nature"
+        ]
       },
       {
         "name": "Colombo National Museum",
@@ -428,7 +630,10 @@
         "rating": 4.2,
         "entry_fee_usd": 5,
         "best_time": "Afternoon",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Cultural"
+        ]
       }
     ],
     "activities": [
@@ -439,7 +644,10 @@
         "rating": 4.5,
         "entry_fee_usd": 10,
         "best_time": "Late Afternoon",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Food"
+        ]
       },
       {
         "name": "Viharamahadevi Park morning walk",
@@ -448,7 +656,11 @@
         "rating": 4.2,
         "entry_fee_usd": 0,
         "best_time": "Morning",
-        "duration_hours": 1
+        "duration_hours": 1,
+        "tags": [
+          "Nature",
+          "Relaxation"
+        ]
       },
       {
         "name": "Colombo city sightseeing by tuk-tuk",
@@ -457,7 +669,10 @@
         "rating": 4.6,
         "entry_fee_usd": 15,
         "best_time": "Anytime",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Mixed"
+        ]
       },
       {
         "name": "Shopping at One Galle Face Mall",
@@ -466,7 +681,10 @@
         "rating": 4.4,
         "entry_fee_usd": 0,
         "best_time": "Afternoon",
-        "duration_hours": 3
+        "duration_hours": 3,
+        "tags": [
+          "Shopping"
+        ]
       },
       {
         "name": "Heritage building photography walk",
@@ -475,7 +693,10 @@
         "rating": 4.3,
         "entry_fee_usd": 0,
         "best_time": "Early Morning",
-        "duration_hours": 2
+        "duration_hours": 2,
+        "tags": [
+          "Mixed"
+        ]
       }
     ],
     "hotels": [
@@ -483,25 +704,55 @@
         "name": "Shangri-La Hotel Colombo",
         "price_per_night_usd": 280,
         "rating": 4.8,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ],
+        "location_cluster": "Galle Face/Kollupitiya"
       },
       {
         "name": "Cinnamon Grand Colombo",
         "price_per_night_usd": 195,
         "rating": 4.6,
-        "type": "Luxury"
+        "type": "Luxury",
+        "budget_category": "Luxury",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Business",
+          "Family"
+        ],
+        "location_cluster": "Galle Face/Kollupitiya"
       },
       {
         "name": "OZO Colombo",
         "price_per_night_usd": 85,
         "rating": 4.1,
-        "type": "Business"
+        "type": "Business",
+        "budget_category": "Mid-range",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Family"
+        ],
+        "location_cluster": "Colombo City Center"
       },
       {
         "name": "Colombo City Hostel",
         "price_per_night_usd": 20,
         "rating": 3.8,
-        "type": "Hostel"
+        "type": "Hostel",
+        "budget_category": "Budget",
+        "suitable_for": [
+          "Couple",
+          "Friends",
+          "Solo"
+        ],
+        "location_cluster": "Colombo City Center"
       }
     ]
   }
