@@ -35,7 +35,9 @@ def create_crew(destination: str, days: int, interests: list[str] = None, trip_p
     # ── LLM (local Ollama — zero cost, no API key required) ─────────────────
     llm = LLM(
         model="ollama/qwen2.5",
-        base_url="http://localhost:11434",
+        base_url="http://localhost:11434/v1",
+        timeout=600,
+        max_retries=1
     )
 
     # ── Task pipeline ─────────────────────────────────────────────────────────
